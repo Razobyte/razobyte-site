@@ -12,7 +12,7 @@ const LayoutFooter = () => {
   return (
     <>
     <Row
-      className="md:min-h-screen h-auto  w-screen flex flex-col py-sm-0 py-5 justify-center items-center"
+      className=" h-auto  w-screen flex flex-col py-sm-0 py-5 justify-center items-center"
       style={{
         backgroundImage: `url(${bg})`,
         backgroundSize: 'cover',
@@ -21,7 +21,7 @@ const LayoutFooter = () => {
       }}
     >
         
-      <div className="col-md-10 col-10 w-full mx-auto gap-5 flex">
+      <div className="col-md-10 col-10 w-full mx-auto gap-5 flex md:pt-20">
         <Row className="w-full">
           <Col xs={12} md={4} className="d-flex py-sm-0 py-5 flex-column justify-sm-center items-sm-center">
             <img

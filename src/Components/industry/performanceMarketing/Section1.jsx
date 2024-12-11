@@ -9,7 +9,7 @@ import  icon3 from '../../../../public/Image/performance-marketing (6).png'
 import  icon2 from '../../../../public/Image/performance-marketing (7).png'
 import  icon1 from '../../../../public/Image/performance-marketing (8).png'
 
-const ServiceCard = ({ icon, title, description, features }) => (
+const ServiceCard = ({ icon, title, description, features, }) => (
   <div className="px-2 py-3 flex  items-center justify-center flex-col">
     <div className=" flex  items-center justify-center flex-col">
       <img src={icon} alt={title} className="w-12 h-12" />
@@ -25,7 +25,7 @@ const ServiceCard = ({ icon, title, description, features }) => (
   </div>
 );
 
-const ServicesSection = () => {
+const ServicesSection = ({headingservices,servicesparagraph}) => {
   const services = [
     {
       icon: icon1,
@@ -82,8 +82,8 @@ const ServicesSection = () => {
         <Row className="justify-content-center bg-[#EAF2FF] py-sm-5 py-2">
           <Col md={10} xs={10}>
             <div className="text-center mb-sm-5 mb-0">
-              <h2 className="sm:text-5xl  text-2xl  mb-sm-3 mb-0 font-semibold text-[#5E5E5E]">Our Services</h2>
-              <h3 className="text-[#3b7fbf] sm:text-xl text-lg">Our Performance Marketing Services</h3>
+              <h2 className="sm:text-5xl  text-2xl  mb-sm-2 mb-0 font-semibold text-[#5E5E5E]">{headingservices}</h2>
+              <h3 className="text-[#3b7fbf] sm:text-xl text-lg">{servicesparagraph}</h3>
             </div> 
             <Row className="g-4 ">
               {services.map((service, index) => (

@@ -190,7 +190,7 @@ export default function ProductEnginner() {
       </Col>
     </Row>
 
-                <ServicesSection />
+                <ServicesSection  headingservices="Our Other Capabilities" servicesparagraph="Our Performance Marketing Services"/>
                 <Contact />
                 {/* <PerformanceMetrics /> */}
                 {/* Case Studies Section */}

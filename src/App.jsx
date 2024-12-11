@@ -9,7 +9,7 @@ import ModalExample from "./Components/Modal/Modal";
 import './App.css';
 import '../src/Components/HomePages/Home/Home.css'
 import RemainPage from "./Components/DevelopmentsPages/RemainPage/RemainPage";
-
+import WebsiteDesignDevelopment from "./Components/website-design-devlopment/Website";
 const Home = lazy(() => import("./Components/HomePages/Home/Home"));
 const About = lazy(() => import("./Components/AboutUspages/About/About"));
 const ServicesMain = lazy(() => import("./Components/ServicesPages/ServicesMain/Services"));
@@ -73,6 +73,7 @@ export default function App() {
   }, [location]);
 
   const isPerformanceMarketing = location.pathname === "/services/digital-marketing/performance-marketing";
+  const isWebsiteDesignDevelopment=location.pathname === "/lp-one/web-design-development"
 
 
   return (
@@ -139,10 +140,11 @@ export default function App() {
             <Route path="/services/maintenance-and-support/mobile-app-maintenance" element={<MobileAppMaintenance />} />
             <Route path="/services/maintenance-and-support/domain-and-hosting-maintenance" element={<DomainHosting />} />
             <Route path="/services/maintenance-and-support/website-maintenance" element={<WebsiteMaineTenance />} />
+            <Route path="/lp-one/web-design-development" element={<WebsiteDesignDevelopment/>}/>
             <Route path="services/remainpage" element={<RemainPage />} />
           </Routes>
         </Suspense>
-        {!isPerformanceMarketing && <Footer />}
+        {!isPerformanceMarketing && !isWebsiteDesignDevelopment  &&  <Footer />}
       </Container>
     </>
   );

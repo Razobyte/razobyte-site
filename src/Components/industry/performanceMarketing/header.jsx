@@ -3,7 +3,8 @@ import {Row,Col} from 'react-bootstrap'
 import logo from '../../../../public/Image/COMPANY LOGO -razobyte-01 (1).png'
 import {MdOutlineWifiCalling3} from 'react-icons/md';
 import {Button} from 'react-bootstrap';
-import '../../Navbar2/Navbar/Navbar.css'
+import '../../Navbar2/Navbar/Navbar.css';
+import wp from '../../../../public/Image/whatsap.png';
 
 
 export default function Header({openmodel}) {
@@ -14,8 +15,16 @@ export default function Header({openmodel}) {
         <div>
             <img src={logo} alt="logo" className=' md:h-5 h-auto md:w-auto w-36' />
        </div>
-       <div className='flex justify-between gap-9'>
-       <div className='md:flex hidden'>
+       <div className='flex justify-between gap-4'>
+       <div className='md:flex hidden justify-center items-center'>
+                                <a href="https://api.whatsapp.com/send?phone=918448158188" target="_blank" rel="noopener noreferrer" className='text-decoration-none'>
+                                    <div className="flex items-center justify-center p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200">
+                                        <img src={wp} alt="WhatsApp" className="img-fluid w-6 mr-2" />
+                                        <h5 className="m-0">Chat Now</h5>
+                                    </div>
+                                </a>
+                            </div>
+       <div className='md:flex hidden justify-center items-center'>
        <a href="tel:+8448158188"
       className='text-decoration-none'>
         <button className="flex items-center bg-[#3b7fbf]
@@ -25,10 +34,10 @@ export default function Header({openmodel}) {
         </button>
       </a>
        </div>
-       <div>
+       <div className=' flex justify-center items-center'>
        <Button 
                 onClick={openmodel}
-                className="btnmain px-sm-5 px-2 "
+                className="btnmain px-sm-2 px-2 "
               >
                 Get a Free Session
               </Button>

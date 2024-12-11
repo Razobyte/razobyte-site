@@ -5,16 +5,18 @@ import { Autoplay, Navigation} from "swiper/modules";
 import "swiper/css";
 import { Row,Col } from "react-bootstrap";
 
-const CommonSection = ({ title, services, bgName }) => {
+const CommonSection = ({ title, services, bgName,para }) => {
   const navigate = useNavigate();
 
   return (
     <Row className={`flex justify-center items-center py-12 w-screen overflow-hidden ${bgName}`}>
       <Col md={10} xs={10}>
         {/* Title */}
-        <h3 className="text-2xl sm:text-4xl font-semibold text-gray-700 text-center mb-8">
+        <h3 className="text-2xl sm:text-4xl font-semibold text-gray-700 text-center mb-0">
           {title}
         </h3>
+        <p  className="md:text-lg sm:text-base text-sm font-normal text-gray-700 text-center mb-8">{para}</p>
+
 
         {/* Desktop Grid */}
         <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">

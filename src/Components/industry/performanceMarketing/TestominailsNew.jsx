@@ -4,6 +4,7 @@ import test1Img from "../../../../public/Image/lar-7.png";
 import test2Img from "../../../../public/Image/inverted-commas 1.png";
 import test3Img from "../../../../public/Image/Raseo-Technology-Solutions.jpg";
 import test4Img from "../../../../public/Image/Eric-yong.jpg";
+import { Row } from "react-bootstrap";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -49,13 +50,13 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <div
+    <Row
       className="w-screen flex justify-center items-center bg-cover bg-center"
       style={{
         backgroundImage: `url(${bg})`,
       }}
     >
-      <div className="max-w-6xl flex flex-col md:flex-row gap-4 items-center justify-center mx-auto py-11">
+      <div className="max-w-6xl col-md-11  flex flex-col md:flex-row gap-4 items-center justify-center mx-auto py-11">
         {/* Heading */}
         <div className="mt-10">
           <div className="flex items-center">
@@ -133,7 +134,7 @@ const TestimonialsSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Row>
   );
 };
 

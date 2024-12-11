@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import './Modal.css';
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import Navbar from '../Navbar2/Navbar/Navbar';
 import Header from '../industry/performanceMarketing/header';
 
-
 export default function ModalExample() {
     const isPerformanceMarketing = location.pathname === "/services/digital-marketing/performance-marketing";
+     const isWebsiteDesignDevelopment=location.pathname === "/lp-one/web-design-development"
 
     const form = useRef();
     const [show, setShow] = useState(false);
@@ -17,10 +18,11 @@ export default function ModalExample() {
         name: '',
         email: '',
         phone: '',
-        company: '',
-        companyWebsite: '',
-        services: '',
-        projectDescription: ''
+        companyName: '',
+        plan: '',
+        paymentCycle: '',
+        customService: '',
+        projectMessage: ''
     });
 
     useEffect(() => {
@@ -32,7 +34,19 @@ export default function ModalExample() {
     }, []);
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        if (name === 'plan' && value !== 'Others') {
+            setFormData({
+                ...formData,
+                [name]: value,
+                customService: '',  // Reset customService if a service other than 'Others' is selected
+            });
+        } else {
+            setFormData({
+                ...formData,
+                [name]: value,
+            });
+        }
     };
 
     const handleClose = () => {
@@ -41,10 +55,11 @@ export default function ModalExample() {
             name: '',
             email: '',
             phone: '',
-            company: '',
-            companyWebsite: '',
-            services: '',
-            projectDescription: ''
+            companyName: '',
+            plan: '',
+            paymentCycle: '',
+            customService: '',
+            projectMessage: ''
         });
     };
 
@@ -71,17 +86,18 @@ export default function ModalExample() {
             .then((response) => {
                 Swal.fire({
                     title: "Thank you for reaching out.",
-                    text: " We'll be in touch shortly regarding your inquiry.",
+                    text: "We'll be in touch shortly regarding your inquiry.",
                     icon: "success"
-                  });
+                });
                 setFormData({
                     name: '',
                     email: '',
                     phone: '',
-                    company: '',
-                    companyWebsite: '',
-                    services: '',
-                    projectDescription: ''
+                    companyName: '',
+                    plan: '',
+                    paymentCycle: '',
+                    customService: '',
+                    projectMessage: '' 
                 });
                 setSubmittedForm(true);
             })
@@ -91,105 +107,115 @@ export default function ModalExample() {
                     title: "Try Again!",
                     text: "Error sending Mail!",
                     icon: "warning"
-                  });
+                });
             });
     };
-    const handleButtonClick=()=>{
-        setShow(true)
-    }
+
+    const handleButtonClick = () => {
+        setShow(true);
+    };
 
     return (
         <>
-        {isPerformanceMarketing && <Header openmodel={handleButtonClick}/>}
-       {!isPerformanceMarketing && <Navbar openmodel={handleButtonClick}/>}
+          {(isPerformanceMarketing || isWebsiteDesignDevelopment) && <Header openmodel={handleButtonClick} />}
+{!(isPerformanceMarketing || isWebsiteDesignDevelopment) && <Navbar openmodel={handleButtonClick} />}
+
             {show && !submittedForm && (
-                <Modal show={show} onHide={handleClose} centered className='d-md-flex d-none'>
-                    <Modal.Header closeButton style={{ backgroundColor: "#3b7fbf", textAlign: "center" }}>
-                        <Modal.Title className='text-light d-flex justify-content-center align-items-center'>
-                            <h4 className='hed3 text-white'>Get In touch</h4>
+                <Modal show={show} onHide={handleClose} centered className='d-md-flex d-none bg-gray-50/10 w-full'>
+                    <Modal.Header closeButton style={{ backgroundColor:"#3b7fbf",textAlign: "center" }}>
+                        <Modal.Title className='text-light d-flex flex-col'>
+                        <h4 className='hed3 text-white'>Request a Quote</h4>
+                            {/* <p className='para text-white'>Tell Us About Your Project!</p> */}
                         </Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <div className='justify-content-center align-items-center' style={{width:"465px"}}>
+                        <div className='justify-content-center bg- align-items-center'>
                             <Form className='p-2' onSubmit={handleSubmit} ref={form}>
                                 <FormGroup>
                                     <FormControl
                                         type='text'
-                                        placeholder='Name*'
+                                        placeholder=' Your Name*'
                                         name='name'
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
                                     />
                                 </FormGroup>
-                                <FormGroup className='d-flex justify-content-center align-items-center pt-3'>
+                                <FormGroup className='pt-3'>
                                     <FormControl
                                         type='email'
-                                        placeholder='Email*'
+                                        placeholder=' Your Email*'
                                         name='email'
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
                                     />
                                 </FormGroup>
-                                <FormGroup className='d-flex justify-content-center align-items-center pt-3'>
+                                <FormGroup className='pt-3'>
                                     <FormControl
                                         type='number'
-                                        placeholder='Phone*'
+                                        placeholder='Your Phone Number*'
                                         name='phone'
                                         value={formData.phone}
                                         onChange={handleChange}
                                         required
                                     />
                                 </FormGroup>
-                                <FormGroup className='d-flex justify-content-center align-items-center pt-3'>
+                                <FormGroup className='pt-3'>
                                     <FormControl
                                         type='text'
-                                        placeholder='Company*'
-                                        name='company'
-                                        value={formData.company}
+                                        placeholder='Company Name/Website (If Any)*'
+                                        name='companyName'
+                                        value={formData.companyName}
                                         onChange={handleChange}
                                         required
                                     />
                                 </FormGroup>
-                                <FormGroup className='d-flex justify-content-center align-items-center pt-3'>
+                                <FormGroup className='pt-3'>
+                                    <div className="dropdown-container">
+                                        <FormControl
+                                            as='select'
+                                            name='plan'
+                                            value={formData.plan}
+                                            onChange={handleChange}
+                                            required
+                                            className="form-select-with-icon"
+                                        >
+                                            <option value=''>Select Services</option>
+                                            <option value='Basic'>Website Design & Development</option>
+                                            <option value='Premium'>Digital Marketing (SEO, SMO & SEM)</option>
+                                            <option value='Enterprise'>Mobile App Development (Android & IOS)</option>
+                                            <option value='Others'>Others</option>
+                                        </FormControl>
+                                        <i className="dropdown-icon">&#x25BC;</i>
+                                    </div>
+
+                                    {formData.plan === 'Others' && (
+                                        <FormGroup className='pt-3'>
+                                            <FormControl
+                                                type='text'
+                                                name='customService'
+                                                placeholder='Please specify your service'
+                                                value={formData.customService}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </FormGroup>
+                                    )}
+                                </FormGroup>
+                                <FormGroup className='pt-3'>
                                     <FormControl
-                                        type='text'
-                                        placeholder='Company Website*'
-                                        name='companyWebsite'
-                                        value={formData.companyWebsite}
+                                        as='textarea'
+                                        placeholder='Tell Us About Your Project/Message'
+                                        name='projectMessage'
+                                        value={formData.projectMessage}
                                         onChange={handleChange}
+                                        rows={2}
                                         required
                                     />
                                 </FormGroup>
-                                <FormGroup className='d-flex justify-content-center align-items-center pt-3'>
-                                    <FormControl
-                                        as='select'
-                                        placeholder='Services*'
-                                        name='services'
-                                        defaultValue={formData.services}
-                                        onChange={handleChange}
-                                        required
-                                    >
-                                        <option value=''>Services</option>
-                                        <option value='Development'>Development</option>
-                                        <option value='Design'>Design</option>
-                                        <option value='Marketing'>Marketing</option>
-                                        <option value='Game Development'>Game Development</option>
-                                    </FormControl>
-                                </FormGroup>
-                                <FormGroup className='d-flex justify-content-center align-items-center py-3'>
-                                    <FormControl
-                                        type='text'
-                                        placeholder='Describe your project *'
-                                        name='projectDescription'
-                                        value={formData.projectDescription}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </FormGroup>
-                                <div className='w-100 d-flex justify-content-center align-items-center'>
-                                    <Button type="submit" variant='outline-dark' className='btnsubmit'>
+                                <div className='w-100 d-flex justify-content-center align-items-center pt-3'>
+                                    <Button type="submit" variant='outline-dark' className='btnsubmit md:w-64'>
                                         Submit
                                     </Button>
                                 </div>
