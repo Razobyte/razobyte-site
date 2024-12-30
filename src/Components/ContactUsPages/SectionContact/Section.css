@@ -1,6 +1,6 @@
 
 .map-image-div>iframe{
-    width:600px;
+    width:500px;
     height:400px;
 }
 
@@ -8,9 +8,5 @@
     .map-image-div>iframe{
         width:350px;
         height:200px;
-        
     }
-
-    
-    
 }

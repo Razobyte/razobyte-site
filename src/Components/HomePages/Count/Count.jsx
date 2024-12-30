@@ -25,7 +25,7 @@ export default function Count({ clients }) {
                                 }
                                 %
                             </h5>
-                            <p>Clients Satisfied</p>
+                            <p className='text-[#5e5e5e]'>Clients Satisfied</p>
                         </div>
                     </div>
                     <div className='clients-card-homepage'>
@@ -39,7 +39,7 @@ export default function Count({ clients }) {
                                 }
                                 +
                             </h5>
-                            <p>Successful Project</p>
+                            < p className='text-[#5e5e5e]'>Successful Project</p>
                         </div>
                     </div>
                     <div className='clients-card-homepage'>
@@ -52,7 +52,7 @@ export default function Count({ clients }) {
                                     <CountUp start={0} end={4} duration={3} delay={0} />}
                                 M+
                             </h5>
-                            <p>Lines of Code</p>
+                            <p className='text-[#5e5e5e]'>Lines of Code</p>
                         </div>
                     </div>
                     <div className='clients-card-homepage'>
@@ -65,7 +65,7 @@ export default function Count({ clients }) {
                                     <CountUp start={0} end={8} duration={3} delay={0} />}
                                 +
                             </h5>
-                            <p>Years of Excellence</p>
+                            <p className='text-[#5e5e5e]'>Years of Excellence</p>
                         </div>
                     </div>
                 </Col>

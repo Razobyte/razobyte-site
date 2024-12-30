@@ -6,15 +6,7 @@ import Sec from './SecSection/SecSection';
 import Blog from '../../Blog/Blog2';
 import Projects2 from '../../AboutUspages/Projects/Projects2';
 import bgImg from '../../../../public/Image/e-bgh.png'
-
-
 export default function ECommmerce(title) {
-
-
-
-
-
-
     return (
 
         <>
@@ -271,18 +263,13 @@ export default function ECommmerce(title) {
                 <Col md={5} className='py-3'>
                     <div >
                         <iframe
-                            className='video'
-
+                            className="video"
                             src="https://www.youtube.com/embed/BVMsRltq2yU?si=SOwrh26Oz50m26b7"
                             title="YouTube video player"
-                            frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullscreen="true"
-                            mozallowfullscreen="true"
-                            webkitallowfullscreen="true"
-                            oallowfullscreen="true"
-                            msallowfullscreen
-                        ></iframe>
+                            allowFullScreen={true}
+                        />
+
                     </div>
                 </Col>
 

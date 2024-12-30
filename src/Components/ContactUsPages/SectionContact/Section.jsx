@@ -4,7 +4,8 @@ import '../SectionContact/Section.css';
 export default function Section() {
     return (
         <>
-            <Row className='py-5 d-flex flex-sm-row flex-column justify-content-center align-items-center gap-5'
+            <Row className='py-5 d-flex flex-sm-row flex-column justify-content-center align-items-center 
+            gap-5'
                 style={{ backgroundImage: "url('Image/blue.png')", backgroundRepeat: "no-repeat", backgroundPosition: "right 20px", backgroundSize: "40%" }}>
                 <Col md={5} className='d-flex justify-content-center'>
                     <div className='map-image-div'>
@@ -24,7 +25,8 @@ export default function Section() {
 
                 </Col>
             </Row>
-            <Row className='py-5 d-flex flex-sm-row flex-column justify-content-center align-items-center gap-0'
+            <Row className='py-5 d-flex flex-sm-row flex-column justify-content-center align-items-center 
+            gap-5'
             >
                 <Col md={5} className='pt-md-0 pt-3  px-md-0 px-5 d-flex flex-column justify-content-center'>
                     <h4 className='hed2  text-left'>India</h4>

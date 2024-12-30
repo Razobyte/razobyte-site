@@ -148,7 +148,7 @@ export default function Banner (){
                 </div>
             </Col>
             <Col md={6} xs={10} sm={10} xxl={5}  lg={5} xl={5} className='d-flex justify-content-center align-items-center  pt-2 '>
-                <img src={home2img} alt='banner-img' fluid
+                <img src={home2img} alt='banner-img' 
                     className='rounded-1 img-fluid  ' 
                 />
             </Col>

@@ -12,9 +12,8 @@ const Banner = ({ title, image, para, para2 }) => {
           alt={title} 
           className="absolute top-0 left-0 w-full h-full object-cover"
         />
-        
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
         {/* Content Container */}
         <div className="absolute inset-0 flex items-center">
           <div className="w-full">

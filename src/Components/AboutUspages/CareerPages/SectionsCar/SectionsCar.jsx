@@ -1,215 +1,65 @@
-
-import { Row, Col, Modal } from 'react-bootstrap'
-import Accordion from 'react-bootstrap/Accordion';
-import '../SectionsCar/SectionCar.css'
+import React, { useState } from 'react';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import Blog from '../../../Blog/Blog2';
-
-import Projects2 from '../../Projects/Projects2';
-import car2img from '../../../../../public/Image/car-2.png';
-import car3img from '../../../../../public/Image/car-3.png';
-import car4img from '../../../../../public/Image/car-4.png';
-import car5_1_img from '../../../../../public/Image/car-5 (1).png';
-import car5_2_img from '../../../../../public/Image/car-5 (2).png';
-import car5_3_img from '../../../../../public/Image/car-5 (3).png';
-import car6img from '../../../../../public/Image/car-6.png';
-import car7_1_img from '../../../../../public/Image/car-7 (1).jpg';
-import car7_2_img from '../../../../../public/Image/car-7 (2).jpg';
-import car7_3_img from '../../../../../public/Image/car-7 (3).jpg';
+import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 
 
-export default function CarSection() {
+// Reusable FAQ Component for Job Openings
+const FaqSection = ({ jobOpenings, title }) => {
+    const [expandedIndex, setExpandedIndex] = useState(null); // Initialize with null for no open item by default
+
+    const handleToggle = (index) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
+
     return (
-        <>
-            <Row className='justify-content-center align-items-center'>
-                <Col md={10}>
-                        <h2 className='hed2 text-center pb-3 pt-4'>What’s Inside</h2>
-                        <div className='d-md-flex gap-5'>
-                        <div className='sec2-txt mt-4 mt-md-0 p-2'>
-                            <div className='flex items-center justify-center'>
-                                <img src= {car2img} alt="" className='img-fluid' style={{ backgroundColor: "#3B7FBF", borderRadius: "50%"}} />
-                            </div>
-                            <h3 className='text-center font-semibold  text-sm  md:text-2xl pt-2'>Growth Centric Culture</h3>
-                            <p  className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and a type specimen book.</p>
-                        </div>
-                        <div className='sec2-txt mt-4 mt-md-0 p-2'>
-                            <div className='flex items-center justify-center'>
-                                <img src= {car3img} alt="" style={{ backgroundColor: "#ffff", borderRadius: "50%",border:"1px solid #3b7fbf" }} className='img-fluid' />
-                            </div>
-                            <h3 className='text-center font-semibold  text-sm  md:text-2xl'>Work-Life Balance</h3>
-                            <p className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and a type specimen book.</p>
-                        </div>
-                        <div className='sec2-txt mt-4 mt-md-0 p-2'>
-                            <div className='flex items-center justify-center'>
-                                <img src= {car4img} alt="" style={{ backgroundColor: "#3B7FBF", borderRadius: "50%"}} className='img-fluid' />
-                            </div>
-                            <h3 className='text-center font-semibold  text-sm  md:text-2xl'>Boredom Not-Allowed</h3>
-                            <p className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and a type specimen book.</p>
-                        </div>
-                    </div>
-                </Col>
-            </Row>
-            <Row className='justify-content-center align-items-center  py-5'>
-                <Col md={10}>
-                   
-                        <h2 className='hed2 text-center pb-3' >What we Value</h2>
-                    
-                    <div>
-                        <div className='d-md-flex gap-4 '>
-                            <div className='sec3-txt mt-4 mt-md-0 p-2'>
-                               <div className='flex items-center justify-center'>
-                               <img src= {car5_3_img} alt="" style={{ backgroundColor: "#3B7FBF", borderRadius: "50%"}} />
-                               </div>
-                                <h3 className='text-center font-semibold  text-sm  md:text-2xl'>Creativity</h3>
-                                <p className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. LoremIpsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley
-                                    of type anda type specimen book.</p>
-                            </div>
-                            <div className='sec3-txt  mt-4 mt-md-0 p-2'>
-                             <div className='flex items-center justify-center'>
-                             <img src= {car5_2_img} alt="" style={{ borderRadius: "50%",  backgroundColor: "#FFFF" }} />
-                             </div>
-                                <h3 className='text-center font-semibold  text-sm  md:text-2xl'>Dedication</h3>
-                                <p className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. LoremIpsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley
-                                    of type anda type specimen book.</p>
-                            </div>
-                        </div>
-                        <div className='d-md-flex gap-4'>
-                            <div className='sec3-txt  mt-4 mt-md-4 p-2'>
-                              <div className='flex items-center justify-center'>
-                              <img src= {car6img} alt="" style={{ backgroundColor: "#3B7FBF", borderRadius: "50%" }} />
-                              </div>
-                                <h3 className='text-center font-semibold  text-sm  md:text-2xl'>Innovation</h3>
-                                <p className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. LoremIpsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley
-                                    of type anda type specimen book.</p>
-                            </div>
-                            <div className='sec3-txt  mt-4 mt-md-4 p-2'>
-                             <div className='flex items-center justify-center'>
-                             <img src ={car5_1_img} alt="" style={{ backgroundColor: "#3B7FBF", borderRadius: "50%" }} />
-                             </div>
-                                <h3 className='text-center font-semibold text-sm  md:text-2xl'>Stepping-up</h3>
-                                <p className='text-sm font-[470] text-center'>Lorem Ipsum is simply dummy text of the printing and typesetting
-                                    industry. LoremIpsum has been the industry's standard dummy
-                                    text ever since the 1500s, when an unknown printer took a galley
-                                    of type anda type specimen book.</p>
-                            </div>
-                        </div>
-                    </div>
-                </Col>
-            </Row>
-            <Row className='justify-content-center'>
-            <h2 className='text-center pb-3 hed2'>Openings</h2>
-                <Col md={10}>
-                    <Accordion defaultActiveKey="0" className='main-accrodinstart'>
-                        <Accordion.Item eventKey='0' className='main-accrodinstartItem  my-3'>
-                            <Accordion.Header className='headersection'>
-                                <div className='d-md-flex justify-content-center align-items-center faqheaderstartgap gap-[570px]'>
-                                <h3 className='text-[22px] font-[600]'>Digital Marketing Intern</h3>
-                                    <p className='text-[#3b7fbf] '>Gurugram</p>
+        <div className="w-full flex justify-center items-center md:py-8 pb-md-5 pb-5">
+            <div className="max-w-6xl w-full px-4">
+                {title && (
+                    <h2 className="mb-1 text-[#000] text-xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center">
+                        {title}
+                    </h2>
+                )}
+                <p className='text-[#5E5E5E] font-medium md:text-lg text-center sm:text-sm text-xs pb-4'>Ready to make an impact? Here are some of the roles we’re hiring for</p>
+                <div className="space-y-4">
+                    {jobOpenings.map((job, index) => (
+                        <div className="bg-white rounded-lg shadow w-full" key={index}>
+                            <div
+                                className="flex items-center justify-between p-2 cursor-pointer border-4 border-[#3b7fbf]"
+                                onClick={() => handleToggle(index)}
+                            >
+                                <div className="flex md:justify-between justify-evenly  items-center w-full">
+                                    <span className="font-[550] text-sm md:text-lg text-[#3D3D3D]">
+                                        {job.title}
+                                    </span>
+                                    <p className="text-[#5e5e5e]  md:text-base text-xs font-medium pe-12">{job.location}</p>
                                 </div>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                            <h3 className='hed3 text-left'>Digital Marketing Intern</h3>
-                            <p className='para'>Experience- 5 Years</p>
-                            <p className='para'>Preferred- e-COmmerce/ Shopify/ Magento/ Big Commerce Preferred</p>
-                            <p className='para'>Qualification- Bachelor’s degree in Marketing, Communications, or a related field.</p>
-                            <div>
-                            <ul className='para'>
-                            <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Minimum of 5 years of proven experience as an SEO Specialist.</li>
-                            <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />In-depth knowledge of SEO tools, Google Analytics, Search Console, GMT, and industry trends.</li>
-                            <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Proficiency in implementing on-page and off-page SEO best practices.</li>
-                            <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />Strong analytical and problem-solving skills.</li>
-                            <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Excellent communication and collaboration skills.</li>
-                            <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />Ability to adapt to evolving SEO algorithms and industry changes</li>
-                            </ul>
+                                {expandedIndex === index ? (
+                                    <IoIosArrowDown className="text-blue-500   text-2xl " />
+                                ) : (
+                                    <IoIosArrowForward className="text-blue-500  text-2xl " />
+                                )}
                             </div>
-                        
-                            </Accordion.Body>
-
-                        </Accordion.Item>
-                        <Accordion.Item eventKey='1' className='main-accrodinstartItem my-2'>
-                            <Accordion.Header className='headersection'>
-                                <div className='d-md-flex justify-content-center align-items-center faqheaderstartgap2 gap-[620px]'>
-                                    <h3 className='text-[22px] font-[600]'>Web Designer Intern</h3>
-                                    <p className=' text-[#3b7fbf] para'>Delhi</p>
+                            {expandedIndex === index && (
+                                <div className="px-4 py-3 text-white bg-[#3b7fbf] border-l-0 mt-2">
+                                    <h3 className="font-bold text-left">{job.title}</h3>
+                                    <p className="text-left">Experience: {job.experience}</p>
+                                    <p className="text-left">Preferred: {job.preferred}</p>
+                                    <p className="text-left">Qualification: {job.qualification}</p>
+                                    <ul className="text-left">
+                                        {job.requirements.map((req, idx) => (
+                                            <li className="d-flex align-items-center py-2" key={idx}>
+                                                <MdKeyboardDoubleArrowRight /> {req}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                            <h3 className='hed3 text-left'>Digital Marketing Intern</h3>
-                            <p className='para'>Experience- 5 Years</p>
-                            <p className='para'>Preferred- e-COmmerce/ Shopify/ Magento/ Big Commerce Preferred</p>
-                            <p className='para'>Qualification- Bachelor’s degree in Marketing, Communications, or a related field.</p>
-                            <div>
-                            <ul className='para'>
-                            <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Minimum of 5 years of proven experience as an SEO Specialist.</li>
-                            <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />In-depth knowledge of SEO tools, Google Analytics, Search Console, GMT, and industry trends.</li>
-                            <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Proficiency in implementing on-page and off-page SEO best practices.</li>
-                            <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />Strong analytical and problem-solving skills.</li>
-                            <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Excellent communication and collaboration skills.</li>
-                            <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />Ability to adapt to evolving SEO algorithms and industry changes</li>
-                            </ul>
-                            </div>
-                      
-                            </Accordion.Body>
-                        </Accordion.Item>
-                        <Accordion.Item eventKey='2' className='main-accrodinstartItem my-2'>
-                        <Accordion.Header className='headersection'>
-                            <div className='d-md-flex justify-content-center align-items-center faqheaderstartgap gap-[590px]'>
-                                <h3 className='text-[22px] font-[600]'>Software Devlopments</h3>
-                                <p className='text-[#3b7fbf] para'>Mumbai</p>
-                            </div>
-                        </Accordion.Header>
-                        <Accordion.Body>
-                        <h3 className='hed3 text-left'>Digital Marketing Intern</h3>
-                        <p className='para'>Experience- 5 Years</p>
-                        <p className='para'>Preferred- e-COmmerce/ Shopify/ Magento/ Big Commerce Preferred</p>
-                        <p className='para'>Qualification- Bachelor’s degree in Marketing, Communications, or a related field.</p>
-                        <div>
-                        <ul className='para'>
-                        <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Minimum of 5 years of proven experience as an SEO Specialist.</li>
-                        <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />In-depth knowledge of SEO tools, Google Analytics, Search Console, GMT, and industry trends.</li>
-                        <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Proficiency in implementing on-page and off-page SEO best practices.</li>
-                        <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />Strong analytical and problem-solving skills.</li>
-                        <li className='d-flex align-itmes-center py-2'><MdKeyboardDoubleArrowRight />Excellent communication and collaboration skills.</li>
-                        <li className='d-flex align-itmes-center'><MdKeyboardDoubleArrowRight />Ability to adapt to evolving SEO algorithms and industry changes</li>
-                        </ul>
+                            )}
                         </div>
-                   
-                        </Accordion.Body>
-                        
-                    </Accordion.Item>
-                    </Accordion>
-        
-
-                </Col>
-
-            </Row>
-            <Row className=' d-flex justify-content-center align-items-center py-5'>
-            <div className='CarLastText'>
-            <h2 className='hed2'>Life at Razobyte</h2>
+                    ))}
+                </div>
             </div>
-            <Col md={10}>
-            <div className='d-md-flex gap-4 allimages d-flex align-items-center justify-content-center'>
-            <div className='mt-3'> <img src= {car7_2_img} alt=""  className='img-fluid  '  /></div>
-            <div className='mt-3'><img src= {car7_1_img} alt=""  className='img-fluid'/></div>
-            <div className='mt-3'><img src= {car7_3_img} alt=""  className='img-fluid  ' /></div>
-           
-            
-       
-            </div>
-       
+        </div>
+    );
+};
 
-            </Col>
-            </Row>
-            <Projects2 titleProjects="Top Web Design Projects"/>
-            <Blog title="Blogs"/>
-
-
-        </>
-    )
-}
+export default FaqSection;

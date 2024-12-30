@@ -16,6 +16,7 @@ import instrlogo from '../../../public/Image/instagram (1) 1.png';
 import fbLogo from '../../../public/Image/FB logo final.png';
 import linkedin from '../../../public/Image/LinkedIn Logo final.png';
 import Twitter from '../../../public/Image/Twitter_new_X_logo Final.png';
+import ScrollToTop from '../ScrollTop';
 
 const servicesData = [
   {
@@ -32,27 +33,28 @@ const servicesData = [
       { name: "OpenKart", path: "/services/ecommerce-solutions/opencart-development" },
       { name: "WooCommerce", path: "/services/ecommerce-solutions/wocommerce-development" },
       { name: "Magneto", path: "/services/ecommerce-solutions/Magneto-development" },
-      { name: "PrestaShop", path: "/services/ecommerce-solutions/prestashop-development" }
+      { name: "PrestaShop", path:"/services/remainpage" }
     ]
   },
   {
     title: "Development",
     items: [
-      { name: "Website Development", path: "/services/development/website-dvelopment" },
+      { name: "Website Development", path: "/services/development/website-dvelopment"},
       { name: "CodeIgniter Website", path: "/services/development/codeigniter-website-development" },
-      { name: "PHP Website", path: "/services/development/php-development" },
+      {name:"Informative Website",path:"/"},
+      { name: "PHP Website", path:  "/services/development/php-development" },
       { name: "HTML & CSS Website", path: "/services/development/html-css-website" },
-      { name: "Laravel Website", path: "/services/laravel" },
-      { name: "React JS Website", path: "/services/development/react-js-website" },
-      { name: "Ruby on Rails", path: "/services/rubyrails" },
-      { name: "E-Commerce Website", path: "/services/development/ecommerce-website-development" }
+      { name: "Laravel Website", path:"/services/development/laravel-devlopment" },
+      { name: "React JS Website", path:  "/services/development/reactjs-development" },
+      { name: "Ruby on Rails",  path: "/services/remainpage" },
+      { name: "E-Commerce Website", path: "/services/development/ecommerce-website-development"}
     ]
   },
   {
     title: "Digital Marketing",
     items: [
       { name: "Search Engine Optimization", path: "/services/digital-marketing/seo-search-engine-optimization" },
-      { name: "Search Engine Marketing", path: "/services/digital-marketing/sem-seacrh-engine-marketing" },
+      { name: "Search Engine Marketing", path: "/services/digital-marketing/sem-search-engine-marketing" },
       { name: "Social Media Optimization", path: "/services/digital-marketing/smo/social-media-optimization" },
       { name: "Social Media Marketing", path: "/services/digital-marketing/smm/social-media-marketing" },
       { name: "Email Marketing", path: "/services/digital-marketing/email-marketing" }
@@ -88,6 +90,8 @@ export default function Footer() {
   const navigate = useNavigate();
 
   return (
+    <>
+    <ScrollToTop/>
    
       <Row className="justify-content-center align-items-start py-sm-5 py-1 row"
       style={{ backgroundColor: "#3b7fbf",}}>
@@ -133,11 +137,12 @@ export default function Footer() {
                sm:gap-x-14 gap-x-1 link">
               {/* <li onClick={()=>navigate('/digital-performance-marketing')}>LandingPage</li> */}
                 <li onClick={() => navigate('/')}>Home</li>
+                <li onClick ={()=>navigate('/privacy-policy')} >Privacy Policy</li>
                 <li onClick={() => navigate('/about/about-us')}>About us</li>
                 <li onClick={() => navigate('/')}>Services</li>
                 <li onClick={() => navigate('/portfolio')}>Portfolio</li>
                 <li onClick={() => navigate('/blogmain')}>Blogs</li>
-                <li onClick={() => navigate('/about/career')}>Careers</li>
+                <li onClick={() => navigate('/careers')}>Careers</li>
                 <li onClick={() => navigate('/contact')}>Reach us</li>
               </ul>
             </Col>
@@ -260,6 +265,7 @@ export default function Footer() {
           </Row>
         </Col>
       </Row>
+      </>
   
   );
 }

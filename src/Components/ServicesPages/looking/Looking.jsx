@@ -1,21 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation} from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
-import { Row,Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
-const CommonSection = ({ title, services, bgName,para }) => {
+const CommonSection = ({ title, services, bgName, para }) => {
   const navigate = useNavigate();
-
   return (
-    <Row className={`flex justify-center items-center py-12 w-screen overflow-hidden ${bgName}`}>
-      <Col md={10} xs={10}>
+    <Row className={`flex justify-center items-center md:py-12 py-3 w-screen overflow-hidden ${bgName}`}>
+      <Col md={10} xs={12}>
         {/* Title */}
-        <h3 className="text-2xl sm:text-4xl font-semibold text-gray-700 text-center mb-0">
+        <h3 className="sm:text-2xl text-xl md:text-4xl font-semibold text-[#5E5E5E] text-center mb-0">
           {title}
         </h3>
-        <p  className="md:text-lg sm:text-base text-sm font-normal text-gray-700 text-center mb-8">{para}</p>
+        <p className="md:text-lg sm:text-base text-xs  sm:font-normal font-medium text-[#5E5E5E] 
+        text-center mb-8">{para}</p>
 
 
         {/* Desktop Grid */}
@@ -42,39 +42,30 @@ const CommonSection = ({ title, services, bgName,para }) => {
         </div>
 
         {/* Mobile Slider */}
-        <div className="md:hidden">
-          <Swiper
-          modules={[Autoplay,Navigation]}
-            spaceBetween={16} // Adjusts spacing between slides
-            slidesPerView={1}
-            loop={true}
-            navigation
-            autoplay={{ delay: 3000 }}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-            }}
-          >
-            {services.map((service, index) => (
-              <SwiperSlide key={index}>
-                <div
-                  onClick={() => navigate(service.link)}
-                  className="flex flex-col items-center justify-center bg-white shadow-md rounded-lg p-6 cursor-pointer hover:shadow-lg transition-shadow duration-300"
-                >
-                  {/* Image */}
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-16 h-16 sm:w-20 sm:h-20 mb-4"
-                  />
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base fw-medium text-[#3b7fbf] text-center">
-                    {service.title}
-                  </h3>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        <div
+  className={`md:hidden flex flex-wrap ${services.length % 3=== 0 ? "justify-start" : "justify-center"}`}
+>
+  {services.map((service, index) => (
+    <div
+      key={index}
+      onClick={() => navigate(service.link)}
+      className="flex flex-col items-center justify-content-center cursor-pointer basis-1/3 mb-3"
+    >
+      {/* Image */}
+      <img
+        src={service.image}
+        alt={service.title}
+        className="w-12 h-12 mb-2"
+      />
+      {/* Title */}
+      <h3 className="text-sm sm:text-base font-medium text-blue-600 text-center">
+        {service.title}
+      </h3>
+    </div>
+  ))}
+</div>
+
+
       </Col>
     </Row>
   );

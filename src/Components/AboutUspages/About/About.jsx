@@ -4,7 +4,6 @@ import ScrollTrigger from 'react-scroll-trigger';
 import Sections from '../Sections/Sections';
 import Projects from '../Projects/Projects2';
 import Testominials from '../../HomePages/Testominals/Testomnials';
-import { Helmet } from 'react-helmet';
 import AbBannerImage from '../../../../public/Image/Ab-banner.png';
 import '../About/About.css'
 import { useNavigate } from 'react-router';
@@ -15,13 +14,6 @@ export default function About() {
     const [clients, setClients] = useState(false)
     return (
         <>
-        <Helmet>
-        <title>About Page</title>
-        <meta
-        name="About page"  content="This is my About  page"   />
-         <meta name="keywords"content="About page content" />
-
-        </Helmet>
         <ScrollTrigger onEnter={() => setClients(true)} onExit={() => setClients(false)}>
         <Row className='d-md-flex d-none items-center justify-center' style={{ backgroundImage: `url(${AbBannerImage})`, height: "398px", backgroundRepeat: "no-repeat", backgroundPosition: "center", backgroundSize: "cover" }}>
                 <Col md className='px-0'>;

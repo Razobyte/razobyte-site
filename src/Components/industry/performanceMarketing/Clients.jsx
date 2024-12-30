@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 // Using your existing image imports
@@ -15,38 +15,80 @@ import cli10 from '../../../../public/Image/cli-2 (11).png';
 import cli11 from '../../../../public/Image/cli-2 (12).png';
 
 const ClientsSectionLandingPage = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Update state on window resize
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
-    <Row
-      className="d-md-flex d-none justify-content-center align-items-center pt-5"
-    >
-      <div className="text-center ">
-        <h2 className="lg:text-5xl md:text-4xl sm:text-3xl text-2xl font-semibold text-[#5E5E5E] mb-2">Our Clients</h2>
-        <p className="text-[#5E5E5E] font-medium md:text-lg text-sm  mb-0">
+    <Row className="d-md-flex justify-content-center align-items-center pt-md-5 pt-2">
+      <div className="text-center">
+        <h2 className="text-2xl md:text-3xl md:font-extrabold font-semibold text-[#3b7fbf]">
+          Our Clients
+        </h2>
+        <p className="text-[#5E5E5E] sm:text-xl text-xs pb-md-0 pb-3">
           From startups to Fortune 350 companies
         </p>
       </div>
-      <Col md={10}>
-        {/* Second Marquee - Left Direction */}
-        <Marquee speed={10} direction="right" >
-        {[cli1, cli2, cli3, cli4, cli5, cli6,cli7,cli8,cli9,cli10,cli11].map((img, index) => (
-            <div 
-              key={index} 
-              className="mx-1"
+      <Col md={10} xs={11}>
+        {isMobile ? (
+          // Mobile View: Two marquees
+          <>
+            {/* First Marquee - Left Direction */}
+            <Marquee speed={10} direction="left">
+              {[cli1, cli2, cli3, cli4, cli5, cli6].map((img, index) => (
+                <div
+                  key={`left-${index}`}
+                  className="mx-0"
+                  style={{
+                    transition: 'transform 0.3s ease',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <img src={img} alt={`left-${index}`} className="h-52" />
+                </div>
+              ))}
+            </Marquee>
 
-              style={{
-                transition: 'transform 0.3s ease',
-                cursor: 'pointer',
-              }}
-             
-            >
-              <img
-                src={img}
-                alt={index + 7}
-                className='h-52'
-              />
-            </div>
-          ))}
-        </Marquee>
+            {/* Second Marquee - Right Direction */}
+            <Marquee speed={10} direction="right">
+              {[cli7, cli8, cli9, cli10, cli11].map((img, index) => (
+                <div
+                  key={`right-${index}`}
+                  className="mx-0"
+                  style={{
+                    transition: 'transform 0.3s ease',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <img src={img} alt={`right-${index}`} className="h-52" />
+                </div>
+              ))}
+            </Marquee>
+          </>
+        ) : (
+          // Desktop View: Single marquee
+          <Marquee speed={10} direction="right">
+            {[cli1, cli2, cli3, cli4, cli5, cli6, cli7, cli8, cli9, cli10, cli11].map(
+              (img, index) => (
+                <div
+                  key={index}
+                  className="mx-1"
+                  style={{
+                    transition: 'transform 0.3s ease',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <img src={img} alt={`desktop-${index}`} className="h-52" />
+                </div>
+              )
+            )}
+          </Marquee>
+        )}
       </Col>
     </Row>
   );

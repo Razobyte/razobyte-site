@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import banner from '../../../public/Image/website-design-devlopment-banner.png'
+import banner from '../../../public/Image/website-design-devlopment.jpg'
 import Count from '../HomePages/Count/Count';
 import ScrollTrigger from 'react-scroll-trigger';
 import { useNavigate } from 'react-router';
@@ -13,7 +13,7 @@ import image28 from '../../../public/Image/php-else (2).png';
 import image29 from '../../../public/Image/php-else (1).png';
 import image30 from '../../../public/Image/php-else(7).png';
 import image31 from '../../../public/Image/lar-8 (11).jpg';
-import image32 from '../../../public/Image/html-css.png';
+import image32 from '../../../public/Image/html-5_5968267 (1).png';
 import image33 from '../../../public/Image/lar-8 (8).png';
 import image34 from '../../../public/Image/shopify7.png';
 import image35 from '../../../public/Image/php-else (3).png';
@@ -30,17 +30,13 @@ import img1 from '../../../public/Image/case-icon (1).png';
 import img2 from '../../../public/Image/case-icon (2).png';
 import img3 from '../../../public/Image/case-icon (3).png';
 import img4 from '../../../public/Image/case-icon (4).png';
-import img5 from '../../../public/Image/performance-marketing (11).png';
-import img6 from '../../../public/Image/performance-marketing (10).png';
-import img7 from '../../../public/Image/performance-marketing (9).png'
 import CommonSection from '../ServicesPages/looking/Looking';
 import { GiCheckMark } from "react-icons/gi";
 import TestimonialsSection from '../industry/performanceMarketing/TestominailsNew';
 import ClientsSectionLandingPage from '../industry/performanceMarketing/Clients';
 import LayoutFooter from '../industry/performanceMarketing/Footer';
-import { MdOutlineWifiCalling3 } from "react-icons/md";
-import { BiLogoWhatsappSquare } from "react-icons/bi";
 import Section1 from './Section1';
+import ModalExample from '../Modal/Modal';
 
 export default function WebsiteDesignDevelopment() {
   const navigate = useNavigate()
@@ -55,8 +51,8 @@ export default function WebsiteDesignDevelopment() {
 
   const otherServices = [
     { title: 'Wordpress Development', image: wordpress, link: '/services/remainpage', show: true },
-    { title: 'PHP Website', image: image27, link: '/services/development/php-development', show: true },
     { title: 'HTML & CSS Website', image: image32, link: '/services/development/html-css-website', show: true },
+    { title: 'PHP Website', image: image27, link: '/services/development/php-development', show: true },
     { title: 'React JS Website', image: image30, link: '/services/development/reactjs-development', show: true },
     { title: 'Laravel Development', image: image33, link: '/services/development/laravel-devlopment', show: true },
     { title: 'Angular JS Website', image: image31, link: '/services/remainpage', show: true },
@@ -146,17 +142,27 @@ export default function WebsiteDesignDevelopment() {
         <Count clients={clients} />
         <Section1 />
         <CommonSection title="Web Development Technologies" services={otherServices} bgName="bg-[#EAF2FF]"
-          para="We specialize in creating powerful, scalable and user-friendly websites using the latest technologies." />
-        <Row className='d-md-flex d-none justify-center items-center py-12 w-screen overflow-hidden bg-[#F5F9FF]'>
-          <Col md={10} xs={10}>
+          para="We specialize in creating powerful, scalable and user-friendly websites using the latest 
+          technologies." />
+            <Row className='bg-[#EAF2FF] pb-5 d-md-none d-flex justify-center items-center'>
+          <Col md={10} className='flex  flex-col justify-center items-center'>
+            <h4 className='text-xl  font-semibold  text-[#5E5E5E]'>
+              Start Your Project Today!</h4>
+              <ModalExample
+              buttonLabel="REQUEST A QUOTE" headingform="REQUEST A QUOTE"
+              subheadingForm="Let's Discuss Your Goals & Provide a Quote"  className="btnmain bg-black text-[#fff] px-5"/>
+          </Col>
+        </Row>
+        <Row className='d-md-flex justify-center items-center md:py-12 py-3 w-screen overflow-hidden bg-[#FFF]'>
+          <Col md={10} xs={12}>
             {/* Title */}
-            <h3 className="text-2xl sm:text-4xl font-semibold text-gray-700 text-center">
+            <h3 className="sm:text-2xl text-xl md:text-4xl font-semibold text-gray-700 text-center">
               Ecommerce Development
             </h3>
-            <p className="md:text-lg sm:text-base text-sm font-normal text-gray-700 text-center mb-8">Building Secure, Scalable Online Stores That Drive Sales</p>
+            <p className="md:text-lg sm:text-base text-xs font-normal text-gray-700 text-center mb-8">Building Secure, Scalable Online Stores That Drive Sales</p>
 
             {/* Desktop Grid */}
-            <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 md:gap-6 gap-3">
               {EcoomerceServices.map((service, index) => (
                 <div
                   key={index}
@@ -180,19 +186,35 @@ export default function WebsiteDesignDevelopment() {
             {/* Mobile Slider */}
           </Col>
         </Row>
-        <Row className='bg-[#3b7fbf] py-4 flex justify-center items-center'>
+        <Row className='bg-[#3b7fbf] py-4 d-md-flex d-none justify-center items-center'>
           <Col md={10} className='flex justify-between items-center'>
-            <h4 className='sm:text-3xl font-semibold text-white'>Start Your Project Today!</h4>
-            <button className='text-[#455A64] md:text-2xl text-xl font-semibold bg-white py-1 px-3 rounded'>
-              BOOK A FREE SESSION
-            </button>
+            <h4 className='sm:text-3xl text-base md:font-semibold font-medium text-white'>Start Your Project Today!</h4>
+            <ModalExample 
+            buttonLabel="REQUEST A QUOTE" headingform="REQUEST A QUOTE"
+            subheadingForm="Let's Discuss Your Goals & Provide a Quote" 
+             className="btnmain bg-white text-[#3b7fbf]"/>
 
           </Col>
 
         </Row>
+      
+ 
+  {/* First Services Section (visible on desktop) */}
+  <ServicesSection
+    headingservices="Our Other Capabilities"
+    className="d-md-flex d-none"
+    servicesparagraph="Drive Traffic, Engage Audiences, and Boost Conversions"
+  />
+  
+  {/* Contact Section */}
+  <Contact />
 
-        <ServicesSection headingservices="Our Other Capabilities" servicesparagraph="Drive Traffic, Engage Audiences, and Boost Conversions" />
-        <Contact />
+  {/* Second Services Section (visible on mobile only) */}
+  <ServicesSection
+    headingservices="Our Other Capabilities"
+    className="d-md-none d-flex py-4"
+    servicesparagraph="Drive Traffic, Engage Audiences, and Boost Conversions"
+  />
         {/* <PerformanceMetrics /> */}
         {/* Case Studies Section */}
 
@@ -374,14 +396,13 @@ export default function WebsiteDesignDevelopment() {
 
                 </Row> */}
         <Row className='bg-[#3b7fbf] py-4 flex justify-center items-center'>
-          <Col md={10} className='flex justify-between items-center'>
+          <Col md={10} className='flex flex-md-row flex-column justify-between items-center'>
             <h4 className='sm:text-3xl font-semibold text-white'>Start Your Project Today!</h4>
-            <button className='text-[#455A64] md:text-2xl text-xl font-semibold bg-white py-1 px-3 rounded'>
-              BOOK A FREE SESSION
-            </button>
-
+            <ModalExample 
+            buttonLabel="REQUEST A QUOTE" headingform="REQUEST A QUOTE"
+            subheadingForm="Let's Discuss Your Goals & Provide a Quote" 
+            className="btnmain bg-white text-[#3b7fbf] sm:px-0 px-3"/>
           </Col>
-
         </Row>
 
       </ScrollTrigger>

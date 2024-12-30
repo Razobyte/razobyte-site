@@ -5,14 +5,6 @@ import { Helmet } from 'react-helmet';
 export default function Contact(){
     return(
         <>
-        <Helmet>
-        <title>Contact Page</title>
-        <meta
-        name="Contact page"
-        content="This is my Contact  page"
-         />
-
-        </Helmet>
         <Banner/>
         <Section/>
         <Row style={{ backgroundColor: "#5e5e5e"}} className='justify-content-center items-center'>

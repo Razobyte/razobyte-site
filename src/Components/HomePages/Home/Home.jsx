@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
@@ -23,17 +23,10 @@ export default function Home() {
     return (
 
         <>
-            <Helmet>
-                <title> Software Development and IT Consultancy Solutions | Razobyte SoftTech</title>
-                <meta name="description" content="Discover Razobyte SoftTech's IT consultancy near you for strategic, operational, and technical consulting. 
-                With 12 years of experience, we provide IT solutions and software development services." />
-                <meta name="keywords" content="IT Consulting, IT Consultancy near me, IT Consultancy services, Software Development
-                " />
-            </Helmet>
             <ScrollTrigger onEnter={() => setClients(true)} onExit={() => setClients(false)} >
                 <Banner />
                 <Count clients={clients} />
-                <Row className='d-none d-sm-flex justify-content-center align-items-center py-5 px-0 gap-5'
+                <Row className='d-none d-sm-flex justify-content-center align-items-center py-5'
                     style={{
                         backgroundColor: "#FFFF "
                     }}>
@@ -42,7 +35,7 @@ export default function Home() {
                         <h2 className='para'>Responsive-Algorithm & Zero-Defects Optimization.</h2>
                     </div>
                     <Col
-                        md={6}
+                        md={5}
                         xs={10}
                         sm={10}
                         xxl={5}
@@ -61,7 +54,13 @@ export default function Home() {
                             height="380px"
                         ></iframe>
                     </Col>
-                    <Col md={5}>
+                    <Col
+                        md={5}
+                        xs={10}
+                        sm={10}
+                        xxl={5}
+                        lg={5}
+                        xl={5}>
                         <div className='spacing'
                             style={{
                                 backgroundImage: "url('/Image/grey.png')",
@@ -141,7 +140,7 @@ export default function Home() {
                 </Row>
                 <Services />
                 <Technical />
-           <ClientsSection/>
+                <ClientsSection />
                 <Contact clients={clients} />
                 <Testominials />
                 <Port />

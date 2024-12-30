@@ -7,6 +7,7 @@ import Blog from '../../../Blog/Blog2';
 import Banner from '../../../Banner/Banner';
 import BlogData from './../FirstBlogpage/FirstBlog.json'
 import { useNavigate } from 'react-router';
+import banner from '../../../../../public/Image/Blog1.jpg'
 
 
 export default function FourthBlog({title,image}) {
@@ -21,7 +22,7 @@ export default function FourthBlog({title,image}) {
             <Banner title="
             Figma v/s Adobe XD
             "
-            image="Image/Blog1.jpg"
+            image={banner}
             
 
           

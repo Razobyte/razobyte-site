@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowForward, IoIosArrowBack } from 'react-icons/io';
 import ButtonE from "../Button";
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 const MobileMenu = ({ isOpen }) => {
   const [showAboutSection, setShowAboutSection] = useState(false);
@@ -58,8 +59,8 @@ const MobileMenu = ({ isOpen }) => {
                     <Link to="/about/about-us" className="no-underline hover:no-underline">
                       <li className="hover:text-blue-600 cursor-pointer text-gray-600 py-1">About</li>
                     </Link>
-                    <Link to="about/career" className="no-underline hover:no-underline">
-                      <li className="hover:text-blue-600 cursor-pointer text-gray-600 py-1">Career</li>
+                    <Link to="/careers" className="no-underline hover:no-underline">
+                      <li className="hover:text-blue-600 cursor-pointer text-gray-600 py-1">Careers</li>
                     </Link>
                     <Link to="/about/our-clients" className="no-underline hover:no-underline">
                       <li className="hover:text-blue-600 cursor-pointer text-gray-600 py-1">Our Clients</li>
@@ -140,7 +141,12 @@ const MobileMenu = ({ isOpen }) => {
                       isOpen={showsubMenuDigital}
                       onToggle={toggleDigitalMenu}
                       items={[
-                        { to:  "/services/digital-marketing/seo-search-engine-optimization", text: "Search Engine Optimization" },
+                        {
+                          text: "Search Engine Marketing",
+                          to: "/services/digital-marketing/sem-search-engine-marketing"
+                        },
+                        { to:  "/services/digital-marketing/seo-search-engine-optimization",
+                           text: "Search Engine Optimization" },
                         { to: "/services/digital-marketing/smo/social-media-optimization", 
                           text: "Social Media Optimization" },
 

@@ -243,13 +243,13 @@ solutions that align with industry standards and trends.
             <div className='d-flex flex-column flex-sm-row justify-content-center align-items-center gap-5'>
                 <div className='d-flex flex-column items-center CodeIgniter-section hover:text-[#ffff]'>
                     <img src= {image13} alt="" className='img-fluid' />
-                    <h3 class="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Embracing CodeIgniter 4</h3>
+                    <h3 className="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Embracing CodeIgniter 4</h3>
 
                    
                 </div>
                 <div className='d-flex flex-column items-center CodeIgniter-section hover:text-[#fff]'>
                     <img src= {image14} alt="" className='img-fluid ' />
-                    <h3 class="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Enhanced Routing System</h3>
+                    <h3 className="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Enhanced Routing System</h3>
                 
                 </div>
                 <div className='d-flex flex-column items-center CodeIgniter-section  hover:text-[#ffff]'>
@@ -267,12 +267,12 @@ solutions that align with industry standards and trends.
             </div>
             <div className='d-flex flex-column items-center CodeIgniter-section hover:text-[#fff]'>
                 <img src= {image17} alt="" className='img-fluid ' />
-                <h3 class="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Simplified Configuration</h3>
+                <h3 className="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Simplified Configuration</h3>
             
             </div>
             <div className='d-flex flex-column items-center CodeIgniter-section  hover:text-[#ffff]'>
                 <img src= {image18} alt="" className='img-fluid' />
-                <h3 class="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Powerful Query Builder</h3>
+                <h3 className="text-center font-semibold text-sm pt-4 pt-md-0 md:text-lg">Powerful Query Builder</h3>
              
             </div>
         </div>

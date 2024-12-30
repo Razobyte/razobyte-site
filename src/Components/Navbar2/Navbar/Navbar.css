@@ -23,36 +23,17 @@ gap: 20px;
 .btnmain {
 position: relative !important;
 display: inline-block !important;
-background-color: white !important;
-border: 1px solid #5e5e5e85 !important;
-font-weight: 500 !important;
-border-radius: 5px !important;
+background-color: #3b7fbf !important;
 outline: none !important;
 box-shadow: none !important;
-color: #3B7FBF !important;
 overflow: hidden !important; /* Ensure overflow is hidden to contain the ::before pseudo-element */
 z-index: 1 !important; 
-font-size: 18px !important;/* Ensure the button content stays above the pseudo-element */
-}
-.btnmain::before {
-content: "" !important;
-position: absolute !important;
-top: 0 !important;
-left: -100% !important; /* Initially hide the pseudo-element */
-width: 100% !important;
-height: 100% !important;
-background-color: #3B7FBF !important;
-transition: left 0.5s ease !important; /* Transition left property */
-border-radius: 5px !important;
-z-index: -1 !important; /* Ensure the pseudo-element is behind the content */ 
 }
 .btnmain:hover {
 color: white !important; /* Change text color on hover */
+background-color: #000!important;
 }
 
-.btnmain:hover::before {
-left: 0 !important; /* Show the pseudo-element on hover */
-}
 
 
 .navbar-nav .dropdown-menu{
@@ -110,23 +91,7 @@ left: 0 !important; /* Show the pseudo-element on hover */
   gap: 10px;
 }
  }
- @media screen and (max-width:968px){
-.btnmain{
-  position: relative !important;
-display: inline-block !important;
-background-color: white !important;
-border: 1px solid #5e5e5e85 !important;
-font-weight: 400 !important;
-border-radius: 5px !important;
-outline: none !important;
-box-shadow: none !important;
-color: #3B7FBF !important;
-overflow: hidden !important; /* Ensure overflow is hidden to contain the ::before pseudo-element */
-z-index: 1 !important; 
-font-size: 14px !important;
 
-}
- }
 
 
 

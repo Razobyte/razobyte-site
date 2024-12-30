@@ -62,13 +62,14 @@ export default function Email({title}){
         <h2 className='hed2 text-center'>Data Enrichment</h2>
         <p className='para text-justify'>
         Data is the backbone of any successful email marketing campaign. With our data enrichment services, we help you enhance your existing customer data with valuable insights, such as demographics, behaviour patterns, and purchase history. By leveraging enriched data, you can personalize your email content and tailor your messaging to resonate with your audience's interests and preferences.
-
+        </p>
+        <p>
         We understand the importance of effective email marketing in driving engagement, nurturing leads, and increasing conversions. campaigns. Let's explore how Razobyte can elevate your email marketing strategy.
+        </p>
         <div className='flex items-center justify-center py-3'>
         <Button className='btn2'>Get in touch </Button>
         </div>
-        
-        </p>
+      
 
 
         </div>
@@ -137,11 +138,12 @@ export default function Email({title}){
             <h2 className='hed2 text-white text-center'>A-B Testing</h2>
             <p className='para text-white ext-justify'>
             Continuous improvement is at the heart of effective email marketing. With our A-B testing services, you can experiment with different email elements, such as subject lines, content, and calls-to-action, to identify what resonates best with your audience. By testing and optimizing your email campaigns, you can improve performance metrics like open rates, click-through rates, and conversion rates, ultimately maximizing the impact of your marketing efforts.
+            </p>
             <div className='d-flex justify-content-center align-items-center py-3'>
             <Button className='btn-3 text-center'>Get in Touch</Button>
         </div>
 
-             </p>
+           
              <div className="Image-Email d-flex d-sm-none">
              <img src={email4Img} alt="" className='img-fluid'/>
              </div>

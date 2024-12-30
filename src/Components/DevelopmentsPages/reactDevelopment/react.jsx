@@ -25,9 +25,7 @@ export default function ReactDevelopment() {
     return (
         <>
             <Row className='flex justify-center items-center p-0'>
-              
-                    <img src={banner} alt='React Development Banner' className='img-fluid p-0' />
-                
+                <img src={banner} alt='React Development Banner' className='img-fluid p-0' />
             </Row>
             <Row className='d-md-flex justify-center items-center pt-5'>
                 <h1 className='text-center hed2'>ReactJS Development Company</h1>
@@ -41,7 +39,7 @@ export default function ReactDevelopment() {
             </Row>
             <Row className='d-md-flex justify-content-center align-items-center'>
 
-                <Col md={12} col sm={10}  xs={10}>
+                <Col md={12} col sm={10} xs={10}>
                     <Marquee className='gap-lg-5 gap-2'>
                         <div className='d-flex align-items-center justify-content-center py-3 gap-lg-5 gap-2'>
                             <img src={cli_2} alt="" className='img-fluid shadow-sm' />
@@ -230,8 +228,8 @@ export default function ReactDevelopment() {
 
                 </div>
             </Row>
-            <TechStack/>
-           
+            <TechStack />
+
             <Row className='d-flex justify-content-center align-items-center  py-4   laravelSection12'>
                 <Col md={10}>
                     <h3 className='hed2 text-white text-center'>Related Services</h3>

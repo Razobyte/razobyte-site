@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 #root{
-    font-family: 'Chillax', sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
     overflow-x: hidden; /* Horizontal overflow hidden */
     height: 100vh; /* Full viewport height */

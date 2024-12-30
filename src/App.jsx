@@ -1,18 +1,23 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy, useEffect,useState } from "react";
 import { Route, Routes } from "react-router";
 import { Container } from "react-bootstrap";
 import { useLocation } from "react-router";
 import { Helmet } from "react-helmet";
-import Navbar from "./Components/Navbar2/Navbar/Navbar";
 import Footer from './Components/Footer/Fotter';
-import ModalExample from "./Components/Modal/Modal";
+import Navbar from "./Components/Navbar2/Navbar/Navbar";
+import Header from "./Components/industry/performanceMarketing/header";
 import './App.css';
+import seoData from './seoData.json'
 import '../src/Components/HomePages/Home/Home.css'
 import RemainPage from "./Components/DevelopmentsPages/RemainPage/RemainPage";
 import WebsiteDesignDevelopment from "./Components/website-design-devlopment/Website";
+import ThankYouPage from "./Components/thankYou/ThankYou";
+import PrivacyPolicy from "./Components/ContactUsPages/privacyPolicy/PrivacyPolicy";
+import SEOHelemt from "./SeoHelmet";
+import NotFoundPage from "./Components/ErrorPage";
+import BlogDetailRouter from "./Components/BlogPages/SubBlog/SubBlog";
 const Home = lazy(() => import("./Components/HomePages/Home/Home"));
 const About = lazy(() => import("./Components/AboutUspages/About/About"));
-const ServicesMain = lazy(() => import("./Components/ServicesPages/ServicesMain/Services"));
 const SEO = lazy(() => import("./Components/ServicesPages/SEO/SEO"));
 const SEM = lazy(() => import("./Components/ServicesPages/SEM/SEM"));
 const SocialMediaOpt = lazy(() => import("./Components/ServicesPages/Social-Media-optimization/SocialMediaOptimization"));
@@ -23,11 +28,6 @@ const Development = lazy(() => import("./Components/DevelopmentsPages/Developmen
 const DeatilP1 = lazy(() => import("./Components/PortFoliPages/DetailPage1/DeatilP1"));
 const Contact = lazy(() => import("./Components/ContactUsPages/ContactPage/Contact"));
 const BlogMain = lazy(() => import("./Components/BlogPages/Blog/Blog"));
-const FirstBlog = lazy(() => import("./Components/BlogPages/SubBlog/FirstBlogpage/FirstBlog"));
-const SecondBlog = lazy(() => import("./Components/BlogPages/SubBlog/SeceondBlog/SecondBlog"));
-const ThirdBlog = lazy(() => import("./Components/BlogPages/SubBlog/ThirdBlog/ThirdBlog"));
-const FourthBlog = lazy(() => import("./Components/BlogPages/SubBlog/FouthBlog/FourthBlog"));
-const FifthBlog = lazy(() => import("./Components/BlogPages/SubBlog/FifthBlog/FifthBlog"));
 const ReactDevelopment = lazy(() => import("./Components/DevelopmentsPages/reactDevelopment/react"))
 const SocialMedia = lazy(() => import("./Components/ServicesPages/SocialMedia/SocialMedia"));
 const Laraveldevlopment = lazy(() => import("./Components/DevelopmentsPages/Laraveldevelopment/Laraveldevlopment"));
@@ -66,36 +66,58 @@ const ItConsultingServices =lazy(()=>import('./Components/industry/itConsulting/
 const ProductEnginner =lazy(()=>import('./Components/industry/productEnginner/ProductEnginner'))
 const PerformanceMarketing =lazy(()=>import('./Components/industry/performanceMarketing/PerforMance'))
 export default function App() {
-
+  const { pathname } = useLocation();
+  const [currentSEO, setCurrentSEO] = useState(null);
   const location = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0 });
-  }, [location]);
-
-  const isPerformanceMarketing = location.pathname === "/services/digital-marketing/performance-marketing";
+  const isPerformanceMarketing = location.pathname === "/lp-two/performance-marketing";
   const isWebsiteDesignDevelopment=location.pathname === "/lp-one/web-design-development"
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // Find the matching SEO data for the current pathname
+    const matchingSEO = seoData.find(item => item.path === pathname);
+
+    if (matchingSEO) {
+      setCurrentSEO(matchingSEO);
+    } else {
+      setCurrentSEO(null);
+    }
+  }, [pathname]);
 
   return (
     <>
+    {currentSEO && (
+        <SEOHelemt
+          title={currentSEO.title}
+          description={currentSEO.description}
+          keywords={currentSEO.keywords}
+          canonicalUrl={`https://www.razobyte.com${pathname}`}
+        />
+      )}
       <Helmet>
         <title>Razobyte</title>
         <meta name="description" content="This is my Inital page" />
         <meta name="keywords" content="Home page content" />
       </Helmet>
-      <ModalExample />
+      {(isPerformanceMarketing || isWebsiteDesignDevelopment) && <Header openmodel={() => setShow(true)} />}
+      {!(isPerformanceMarketing || isWebsiteDesignDevelopment) && <Navbar openmodel={() => setShow(true)} />}
+        
       <Container fluid className="noscroll">
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
+          <Route path="*" element={<NotFoundPage/>} />
+            <Route path="lp-two/performance-marketing" element={<PerformanceMarketing/>}/>
             <Route path="/services/digital-marketing/performance-marketing" element={<PerformanceMarketing />} />
             <Route path="/" element={<Home />} />
+            <Route path="/privacy-policy/" element={<PrivacyPolicy/>}/>
             <Route path="/about/about-us" element={<About />} />
             <Route path="/services/digital-marketing/seo-search-engine-optimization" element={<SEO />} />
-            <Route path="/services/digital-marketing/sem-seacrh-engine-marketing" element={<SEM />} />
+            <Route path="/services/digital-marketing/sem-search-engine-marketing" element={<SEM />} />
             <Route path="services/digital-marketing/smo/social-media-optimization" element={<SocialMediaOpt />} />
             <Route path="/services/development/ecommerce-website-development" element={<ECommmerce />} />
+            <Route path="/thankyou-page" element={  <ThankYouPage/> }/>
             <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/about/career" element={<Career />} />
+            <Route path="/careers" element={<Career />} />
             <Route path="/services/development/website-dvelopment" element={<Development />} />
             <Route path="/industry/healthcare-it-soultions" element={<HealthCareItSolutions/>}/>
             <Route path="/industry/it-consulting"element={<ItConsultingServices/>}/>
@@ -112,11 +134,7 @@ export default function App() {
             <Route path="/detailP9/:id" element={<DeatilP9 />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blogmain" element={<BlogMain />} />
-            <Route path="/firstBlog" element={<FirstBlog />} />
-            <Route path="/secondBlog" element={<SecondBlog />} />
-            <Route path="/thirdBlog" element={<ThirdBlog />} />
-            <Route path="/fourthBlog" element={<FourthBlog />} />
-            <Route path="/fifthBlog" element={<FifthBlog />} />
+            <Route path="/blogmain/:titles" element={<BlogDetailRouter />} />
             <Route path="/services/" element={<SocialMedia />} />
             <Route path="/services/development/laravel-devlopment" element={<Laraveldevlopment />} />
             <Route path="/about/our-clients" element={<Clients />} />

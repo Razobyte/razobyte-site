@@ -1,5 +1,4 @@
 import { Row, Col } from 'react-bootstrap';
-import Banner from '../../Banner/Banner';
 import Blog from '../../Blog/Blog2';
 import { useNavigate } from 'react-router';
 import bannerImage from '../../../../public/Image/opne-cart-banner.png'
@@ -14,15 +13,6 @@ import opencart5Img from '../../../../public/Image/Op (3).png';
 import opencart6Img from '../../../../public/Image/Shopify (3).png';
 import opencart7Img from '../../../../public/Image/Shopify (1).png';
 import opencart8Img from '../../../../public/Image/Shopify7.png';
-
-
-
-
-
-
-
-
-
 export default function OpenKart({ Image, title }) {
   const navigate=useNavigate()
   return (

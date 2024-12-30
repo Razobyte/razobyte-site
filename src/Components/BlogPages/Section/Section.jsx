@@ -9,14 +9,14 @@ export default function Section() {
     const [input, setInput] = useState('');
     const navigate = useNavigate();
 
-    const routes = [
-        '/firstBlog',
-        '/secondBlog',
-        '/thirdBlog',
-        '/fourthBlog',
-        '/fifthBlog',
-        '/sixthBlog'
-    ];
+    // Function to convert title to URL-friendly slug
+    const createSlug = (title) => {
+        return title
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, '') // Remove special characters
+            .replace(/\s+/g, '-')     // Replace spaces with hyphens
+            .replace(/-+/g, '-');     // Replace multiple hyphens with single hyphen
+    };
 
     // Memoized filtering to improve performance
     const filteredData = useMemo(() => {
@@ -31,12 +31,16 @@ export default function Section() {
     }, [input]);
 
     const handleSearch = () => {
-        // If you need any additional search logic
         console.log('Searching for:', input);
     };
 
     const handleChange = (e) => {
         setInput(e.target.value);
+    };
+
+    const handleCardClick = (blogTitle) => {
+        const slug = createSlug(blogTitle);
+        navigate(`/blogmain/${slug}`);
     };
 
     return (
@@ -63,11 +67,11 @@ export default function Section() {
                 </div>
 
                 <div className='w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                    {filteredData.map((item, index) => (
+                    {filteredData.map((item) => (
                         <Card 
                             key={item.id} 
-                            className=' border-0   shadow-md cursor-pointer hover:shadow-lg transition-shadow duration-300'
-                            onClick={() => navigate(routes[index] || '/defaultBlog')}
+                            className='border-0 shadow-md cursor-pointer hover:shadow-lg transition-shadow duration-300'
+                            onClick={() => handleCardClick(item.full_name)}
                         >
                             <div className='overflow-hidden'>
                                 <Card.Img 
@@ -81,13 +85,10 @@ export default function Section() {
                                 <Card.Title className='md:text-xl text-base font-extrabold mb-3' style={{color:"#3b7fbf"}}>
                                     {item.full_name}
                                 </Card.Title>
-                                <Card.Text className='text-gray-600  font-normal mb-4'>
+                                <Card.Text className='text-gray-600 font-normal mb-4'>
                                     {item.title}
                                 </Card.Text>
-                                <Button 
-                                    
-                                    className='w-full read-more-btn'
-                                >
+                                <Button className='w-full read-more-btn'>
                                     Read More
                                 </Button>
                             </Card.Body>

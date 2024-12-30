@@ -7,6 +7,7 @@ import Blog from '../../../Blog/Blog2';
 import Banner from '../../../Banner/Banner';
 import BlogData from './../FirstBlogpage/FirstBlog.json'
 import { useNavigate } from 'react-router';
+import banner from '../../../../../public/Image/Blog1.jpg'
 
 
 export default function FifthBlog({title,image}) {
@@ -20,7 +21,7 @@ export default function FifthBlog({title,image}) {
             <Banner title="
             Why e-commerce Brands are failing
             "
-            image="Image/Blog1.jpg"
+            image={banner}
             />
             <Row
                 className="px-0  py-5  justify-content-center gap-5"
@@ -249,14 +250,14 @@ export default function FifthBlog({title,image}) {
 
             </Row>
             <Blog title="Feature Blogs"/>
-            <Row style={{ backgroundColor: "#5e5e5e"}} className='justify-content-center align-items-center'>
+            {/* <Row style={{ backgroundColor: "#5e5e5e"}} className='justify-content-center align-items-center'>
                 <Col md={10} className='flex items-center justify-center gap-5 py-3'>
                     <p className='para text-white pt-2'>Interested in a little more details, let us know how we can assist you Button</p>
                     <Button variant='dark' className='btn-last-banner-contact-Us' onClick={()=>navigate('/sem')}>Expolre Services</Button>
                     <Button variant='dark' className='btn-last-banner-contact-Us d-md-flex d-none' onClick={()=>navigate('/contact')}>Get qoute</Button>
 
                 </Col>
-            </Row>
+            </Row> */}
 
 
 

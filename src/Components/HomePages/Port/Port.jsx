@@ -111,47 +111,45 @@ export default function Port() {
     const pageArray = Array.from({ length: numberOfPages }, (item, index) => index + 1);
 
     return (
-        <>
-            <Row className=' flex justify-content-center align-items-center py-4'
-                style={{
-                    backgroundImage: "url('/Image/blue.png')",
-                    backgroundRepeat: "no-repeat",
-                    backgroundSize: "60%",
-                    backgroundPosition: "center",
-                    backgroundColor: "#FFFF"
-                }}
-            >
-                <div className='text-center'>
-                    <h3 className='hed2'>Portfolio</h3>
-                </div>
-                <div className={`AllbuttonForMove port-text ${currentPage === 1 ? '' : 'slide'}`} >
-                    {visibleRecords.map((item,id) => (
-                        <Col key={id} md={3} className='d-md-flex justify-content-center align-items-center'>
-                        <Card className='Card-Portfolio'>
-                            <div className='Port-imgPort'>
-                                <img src={item.image} variant='top' className='img-fluid' />
-                            </div>
-                                    <CardBody className='overlay-link'>   
-                                        {/*<FaExternalLinkAlt  className="icon-button" size={35} color='#ffff'  onClick={() =>navigate(`/DetailP${item.id}/${item.id}`)} />*/}
-                                        <FaExternalLinkAlt  className="icon-button" size={35} color='#ffff'  />
-                                        <CardTitle><h4 className='md:text-3xl  hed3 text-white font-semibold  text-center'>{item.title}</h4></CardTitle>
-                                        <CardText>
-                                            <h6 className='para text-center text-white font-semibold md:text-lg text-sm '>{item.subTitle}</h6>
-                                        </CardText>
-                                    </CardBody>
-                                </Card>
-                            
-                        </Col>
-                    ))}
-                </div>
-                <div className='AllbuttonForMove'>
-                    {pageArray.map((page) => (
-                        <Button key={page} onClick={() => handlePageClick(page)}>
-                            {page}
-                        </Button>
-                    ))}
-                </div>
-            </Row>
+        <>  <Row className='flex justify-content-center align-items-center py-4'
+        style={{
+            backgroundImage: "url('/Image/blue.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "60%",
+            backgroundPosition: "center",
+            backgroundColor: "#FFFF"
+        }}
+    >
+        <div className='text-center'>
+            <h3 className='hed2'>Portfolio</h3>
+        </div>
+        <div className={`AllbuttonForMove port-text ${currentPage === 1 ? '' : 'slide'}`} >
+            {visibleRecords.map((item,id) => (
+                <Col key={id} md={3} className='d-md-flex justify-content-center align-items-center'>
+                <Card className='Card-Portfolio'>
+                    <div className='Port-imgPort'>
+                        <img src={item.image} variant='top' className='img-fluid' />
+                    </div>
+                            <CardBody className='overlay-link'>   
+                                <FaExternalLinkAlt  className="icon-button" size={35} color='#ffff'  />
+                                <CardTitle><h4 className='md:text-3xl  hed3 text-white font-semibold  text-center'>{item.title}</h4></CardTitle>
+                                <div className="text-center">
+                                    <h6 className='para text-white font-semibold md:text-lg text-sm'>{item.subTitle}</h6>
+                                </div>
+                            </CardBody>
+                        </Card>
+                    
+                </Col>
+            ))}
+        </div>
+        <div className='AllbuttonForMove'>
+            {pageArray.map((page) => (
+                <Button key={page} onClick={() => handlePageClick(page)}>
+                    {page}
+                </Button>
+            ))}
+        </div>
+    </Row>
         </>
     );
 }

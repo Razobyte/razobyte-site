@@ -65,7 +65,7 @@ export default function Section(title) {
         <>
             <Row className='d-flex justify-content-center align-items-center'>
 
-                <Col md={12} col sm={10} >
+                <Col md={12}  sm={10} >
                     <Marquee className='gap-2'>
                         <div className='d-flex align-items-center justify-content-center py-3'>
                             <img src={cli_2} alt="" className='img-fluid' />

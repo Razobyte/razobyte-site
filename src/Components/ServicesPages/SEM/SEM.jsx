@@ -30,15 +30,7 @@ export default function SEM(title) {
     const navigate = useNavigate()
     return (
 
-        <>
-        <Helmet>
-        <title>Search Engine Marketing Services | SEM and PPC Services Company</title>
-        <meta name="description" content="Razobyte SoftTech helps build trustworthy and effective search engine marketing and pay-per-click strategies for our clients."/>
-        <meta name="keywords" content='sem services, SEM Agency ,SEM Company, Pay Per Click Services, PPC Services ,
-        search engine marketing Services, SEM Services'/>
-
-        </Helmet>
-           
+        <>           
         <Row className='p-0 d-lg-none  position-relative'>
       <img src={BannerImg} alt="banner" className='img-fluid p-0' />
       <Col md lg xxl className="px-0">

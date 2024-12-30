@@ -7,8 +7,9 @@ import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import MobileMenu from './MobileMenu';
 import './Navbar.css'
+import ModalExample from '../../Modal/Modal';
 
-const Navbar = ({ openmodel}) => {
+const Navbar = () => {
   const [click, setClick] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [activeSubcategory, setActiveSubcategory] = useState(null);
@@ -34,8 +35,8 @@ const Navbar = ({ openmodel}) => {
             "path": "/about/our-clients"
           },
           {
-            "title": "Career",
-            "path": "/about/career"
+            "title": "Careers",
+            "path": "/careers"
           }, {
             "title": "Blogs",
             "path": "/blogMain",
@@ -149,7 +150,7 @@ const Navbar = ({ openmodel}) => {
               },
               {
                 "title": "Search Engine Marketing",
-                "path": "/services/digital-marketing/sem-seacrh-engine-marketing"
+                "path": "/services/digital-marketing/sem-search-engine-marketing"
               },
               {
                 "title": "Social Media Optimization",
@@ -227,11 +228,11 @@ const Navbar = ({ openmodel}) => {
         "type": "dropdown",
         "submenu": [
           {
-            "title": "Healthcare IT Solutions ",
+            "title": "Healthcare  Solutions ",
             "path": "/industry/healthcare-it-soultions"
           },
           {
-            "title": "IT consulting",
+            "title": "IT Consulting",
             "path": "/industry/it-consulting"
           },
           {
@@ -272,12 +273,12 @@ const Navbar = ({ openmodel}) => {
       <div className="max-w-7xl w-full mx-auto px-4">
         <div className="flex justify-center items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-1">
     {menuData.logo && (
       <img 
         src={menuData.logo} 
         alt="logo" 
-        className="h-6 lg:w-full md:w-1/2 sm:w-1/2 xs:w-full sm:h-6 md:h-8 lg:h-10 xl:h-12 img-fluid object-contain "
+        className="h-6 lg:w-full md:w-full sm:w-full xs:w-full sm:h-6 md:h-8 lg:h-10 xl:h-12 img-fluid object-contain "
       />
     )}
   </div>
@@ -285,7 +286,8 @@ const Navbar = ({ openmodel}) => {
           {/* Desktop Menu */}
           <div className="hidden sm:flex items-center 
            justify-center xl:space-x-8 lg:space-x-6 md:space-x-4 space-x-2">
-            <ul className="flex items-center  justify-center pt-3 xl:space-x-8 lg:space-x-6 md:space-x-4 space-x-2 ">
+            <ul className="flex items-center  justify-center pt-3 xl:space-x-8 
+            lg:space-x-6 md:space-x-4 space-x-2 ">
               {menuData.mainMenu?.map((item, index) => (
                 <div key={index} className="relative group">
                   {item.type === 'link' ? (
@@ -294,7 +296,7 @@ const Navbar = ({ openmodel}) => {
                         to={item.path}
                         className="text-gray-600
                          hover:text-[#3b7fbf] transition-colors duration-200 font-medium
-                         text-decoration-none lg:text-xl md:text-lg sm:text-base text-base"
+                         text-decoration-none lg:text-xl md:text-base sm:text-sm text-sm"
                       >
                         {item.title}
                       </Link>
@@ -305,7 +307,7 @@ const Navbar = ({ openmodel}) => {
                         className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors duration-200 font-medium"
                         onMouseEnter={() => handleDropdownToggle(item.title)}
                       >
-                        <span className=' text-decoration-none lg:text-xl md:text-lg sm:text-base text-base'>{item.title}</span>
+                        <span className=' text-decoration-none lg:text-xl md:text-base sm:text-sm '>{item.title}</span>
                         {activeDropdown === item.title ? (
                           <FaAngleUp className="h-4 w-4" />
                         ) : (
@@ -326,7 +328,7 @@ const Navbar = ({ openmodel}) => {
                                   to={subItem.path}
                                   className="block  py-2 text-gray-600 hover:text-blue-600
                                    hover:bg-gray-50
-                                    text-decoration-none lg:text-xl md:text-lg sm:text-base text-base"
+                                    text-decoration-none lg:text-xl md:text-base sm:text-sm "
                                 >
                                   {subItem.title}
                                 </Link>
@@ -375,7 +377,7 @@ const Navbar = ({ openmodel}) => {
                                               className="w-6 h-6"
                                             />
                                           )}
-                                          <h4 className="text-[#3b7fbf] text-base font-semibold">
+                                          <h4 className="text-[#3b7fbf] md:text-base text-sm font-semibold">
                                             {column.subcategory.title}
                                           </h4>
                                         </div>
@@ -417,18 +419,14 @@ const Navbar = ({ openmodel}) => {
                 className="flex items-center space-x-1 text-[#3b7fbf] hover:text-blue-700
                 text-decoration-none"
               >
-                <div className="bg-[#3b7fbf] lg:p-2  md:p-1 rounded-full">
-                  <MdPhoneInTalk className="lg:h-5 lg:w-5 md:w-3 md:h-3 w-2 h-2 text-white" />
+                <div className="bg-[#3b7fbf]  hidden hover:bg-[#000] lg:p-2  p-md-2 p-1 rounded-full">
+                  <MdPhoneInTalk className="lg:h-5 lg:w-5 text-white " />
                 </div>
                 <span className="font-medium">{menuData.contact.phone}</span>
               </a>
-              
-              <Button 
-                onClick={openmodel}
-                className="btnmain"
-              >
-                Book a Session
-              </Button>
+              <ModalExample  headingform="Book Your Session" buttonLabel="Book Your Session" 
+              subheadingForm="We’re Here to Help You Grow and Succeed"
+              className="btnmain text-white  d-md-block d-none"/>
             </div>
           </div>
 
